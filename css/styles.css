@@ -1,0 +1,8 @@
+:root {
+    --primary-color: rgb(57, 143, 255);
+    --primary-color-dark: rgb(27, 89, 170);
+    --primary-color-light:  rgb(109, 171, 253);
+    --primary-color-contrast: white;
+
+    --accent-color: rgb(255, 193, 7);
+}
