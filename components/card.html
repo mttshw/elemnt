@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <title>Fabrica</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+<body>
+    <site-header></site-header>
+    <main>
+        <site-nav></site-nav>
+        <section id="content">
+
+            <h1>Card</h1>
+
+            <h4>Default Card</h4>
+            <fabrica-card>
+                <h3 slot="title">Card Title</h3>
+                <p slot="content">This is some content inside the card.</p>
+            </fabrica-card>
+            <pre><code>
+&lt;fabrica-card&gt;
+    &lt;h3 slot="title"&gt;Card Title&lt;/h3&gt;
+    &lt;p slot="content"&gt;This is some content inside the card.&lt;/p&gt;
+&lt;/fabrica-card&gt;
+            </code></pre>
+
+            <h4>Card without Title</h4>
+            <fabrica-card>
+                <p slot="content">This card has no title slot.</p>
+            </fabrica-card>
+            <pre><code>
+&lt;fabrica-card&gt;
+    &lt;p slot="content"&gt;This card has no title slot.&lt;/p&gt;
+&lt;/fabrica-card&gt;
+            </code></pre>
+
+            <h4>Card with image</h4>
+            <fabrica-card>
+                <img slot="image" src="https://placehold.co/400x300/cccccc/969696.png?font=lato" alt="Example Image">
+                <h3 slot="title">Card with Image</h3>
+                <p slot="content">This card includes an image at the top.</p>
+            </fabrica-card>
+            <pre><code>
+&lt;fabrica-card&gt;
+    &lt;img slot="image" src="https://placehold.co/400x300/cccccc/969696.png?font=lato" alt="Example Image"&gt;
+    &lt;h3 slot="title"&gt;Card with Image&lt;/h3&gt;
+    &lt;p slot="content"&gt;This card includes an image at the top.&lt;/p&gt;
+&lt;/fabrica-card&gt;
+            </code></pre>
+
+            <h4>Card with button</h4>
+            <fabrica-card>
+                <h3 slot="title">Card with Button</h3>
+                <p slot="content">This card includes a button.</p>
+                <fabrica-button slot="actions">Click Me</fabrica-button>
+                <fabrica-button slot="actions" type="outlined">Click Me 2</fabrica-button>
+                <fabrica-button slot="actions" type="text">Click Me 3</fabrica-button>
+            </fabrica-card>
+            <pre><code>
+&lt;fabrica-card&gt;
+    &lt;h3 slot="title"&gt;Card with Button&lt;/h3&gt;
+    &lt;p slot="content"&gt;This card includes a button.&lt;/p&gt;
+    &lt;fabrica-button slot="actions"&gt;Click Me&lt;/fabrica-button&gt;
+&lt;/fabrica-card&gt;
+            </code></pre>
+
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" defer src="/site/site-footer.js"></script>
+    <script type="module" defer src="/site/site-header.js"></script>
+    <script type="module" defer src="/site/site-nav.js"></script>
+    <script type="module" defer src="/js/components/fabrica-button.js"></script>
+    <script type="module" defer src="/js/components/fabrica-card.js"></script>
+</body>
+</html>

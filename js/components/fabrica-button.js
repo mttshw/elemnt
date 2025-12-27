@@ -2,19 +2,21 @@ const styles = new CSSStyleSheet()
 styles.replaceSync(/* css */`
     [part="button"] {
         display: inline-block;
-        padding: var(--button-padding);
+        padding: var(--fabrica-button-padding);
         border: none;
-        border-radius: var(--button-border-radius);
-        background-color: var(--button-color);
-        color: var(--button-contrast-color);
-        font-size: var(--button-font-size);
+        border-radius: var(--fabrica-button-border-radius);
+        background-color: var(--fabrica-button-color);
+        color: var(--fabrica-button-contrast-color);
+        font-size: var(--fabrica-button-font-size);
         cursor: pointer;
         transition: all 0.3s;
         text-decoration: none;
+        border: 2px solid var(--fabrica-button-color, blue);
 
         &:hover,
         &:active {
-            background-color: var(--button-color-hover);
+            background-color: var(--fabrica-button-color-hover);
+            border-color: var(--fabrica-button-color-hover);
         }
 
         &[disabled] {
@@ -24,74 +26,69 @@ styles.replaceSync(/* css */`
             &:hover,
             &:active {
                 text-decoration: none;
-                background-color: var(--primary-color, blue);
-                color: var(--primary-contrast-color, white);
+                background-color: var(--fabrica-button-color);
+                color: var(--fabrica-button-contrast-color);
             }
         }
 
         &[size="small"] {
-            padding: var(--button-padding-small);
-            font-size: var(--button-font-size-small);
+            padding: var(--fabrica-button-padding-small);
+            font-size: var(--fabrica-button-font-size-small);
         }
 
         &[size="large"] {
-            padding: var(--button-padding-large);
-            font-size: var(--button-font-size-large);
+            padding: var(--fabrica-button-padding-large);
+            font-size: var(--fabrica-button-font-size-large);
         }
     }
 
     [part="button"][type="outlined"] {
         background-color: transparent;
-        border: 2px solid var(--primary-color, blue);
-        color: var(--primary-color, blue);
+        border: 2px solid var(--fabrica-button-color, blue);
+        color: var(--fabrica-button-color, blue);
 
         &[disabled]:hover,
         &[disabled]:active {
-            border-color: var(--primary-color, blue);
-            color: var(--primary-color, blue);
+            border-color: var(--fabrica-button-color, blue);
+            color: var(--fabrica-button-color, blue);
             background-color: transparent;
         }
     }
 
-    [part="button"][type="outlined"]:hover {
-        border-color: var(--accent-color, navy);
-        color: var(--accent-color, navy);
+    [part="button"][type="outlined"]:hover,
+    [part="button"][type="outlined"]:active,
+    [part="button"][type="outlined"]:focus {
+        border-color: var(--fabrica-button-color-hover);
+        color: var(--fabrica-button-color-hover);
     }
 
-    [part="button"][type="outlined"]:active {
-        border-color: var(--accent-color, navy);
-        color: var(--primary-contrast-color, white);
-    }
 
     [part="button"][type="text"] {
         background-color: transparent;
-        color: var(--primary-color, blue);
+        color: var(--fabrica-button-color);
         padding: 0;
+        border: transparent;
 
         &[disabled]:hover,
         &[disabled]:active {
-            color: var(--primary-color, blue);
+            color: var(--fabrica-button-color);
             background-color: transparent;
             text-decoration: none;
 
             [part="label"] {
-                color: var(--primary-color, blue);
+                color: var(--fabrica-button-color);
                 background-color: transparent;
                 text-decoration: none;
             }
         }   
     }
 
-    [part="button"][type="text"]:hover {
+    [part="button"][type="text"]:hover,
+    [part="button"][type="text"]:focus {
         [part="label"] {
             text-decoration: underline;
-            color: var(--accent-color, navy);
+            color: var(--fabrica-button-color-hover);
         }
-    }
-
-    [part="button"][type="text"]:active {
-        background-color: var(--primary-color-dark, navy);
-        color: var(--primary-contrast-color, white);
     }
 
 `)

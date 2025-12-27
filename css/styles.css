@@ -6,16 +6,29 @@
 
     --accent-color: rgb(255, 193, 7);
 
-    --button-color: var(--primary-color);
-    --button-color-hover: var(--primary-color-dark);
-    --button-contrast-color: var(--primary-color-contrast);
-    --button-padding: 10px 20px;
-    --button-border-radius: 4px;
-    --button-padding-small: 4px 8px;
-    --button-padding-large: 12px 24px;
-    --button-font-size: 1rem;
-    --button-font-size-small: 0.875rem;
-    --button-font-size-large: 1.25rem;
+    --fabrica-button-color: var(--primary-color);
+    --fabrica-button-color-hover: var(--primary-color-dark);
+    --fabrica-button-contrast-color: var(--primary-color-contrast);
+    --fabrica-button-padding: 10px 20px;
+    --fabrica-button-border-radius: 4px;
+    --fabrica-button-padding-small: 4px 8px;
+    --fabrica-button-padding-large: 12px 24px;
+    --fabrica-button-font-size: 1rem;
+    --fabrica-button-font-size-small: 0.875rem;
+    --fabrica-button-font-size-large: 1.25rem;
+
+    --fabrica-card-background-color: white;
+    --fabrica-card-border-color: #ddd;
+    --fabrica-card-border-radius: 8px;
+    --fabrica-card-padding: 20px;   
+    --fabrica-card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --fabrica-card-border-hover: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --fabrica-card-title-font-size: 1.5rem;
+    --fabrica-card-title-color: #333;
+    --fabrica-card-title-font-weight: bold;
+    --fabrica-card-content-font-size: 1rem;
+    --fabrica-card-content-color: #666;
+    --fabrica-card-gap: 15px;
 }
 
 body {
@@ -49,4 +62,5 @@ pre {
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
+    max-width: 400px;
 }
