@@ -2,21 +2,21 @@ const styles = new CSSStyleSheet()
 styles.replaceSync(/* css */`
     [part="button"] {
         display: inline-block;
-        padding: var(--fabrica-button-padding);
+        padding: var(--elemnt-button-padding);
         border: none;
-        border-radius: var(--fabrica-button-border-radius);
-        background-color: var(--fabrica-button-color);
-        color: var(--fabrica-button-contrast-color);
-        font-size: var(--fabrica-button-font-size);
+        border-radius: var(--elemnt-button-border-radius);
+        background-color: var(--elemnt-button-color);
+        color: var(--elemnt-button-contrast-color);
+        font-size: var(--elemnt-button-font-size);
         cursor: pointer;
         transition: all 0.3s;
         text-decoration: none;
-        border: 2px solid var(--fabrica-button-color, blue);
+        border: 2px solid var(--elemnt-button-color, blue);
 
         &:hover,
         &:active {
-            background-color: var(--fabrica-button-color-hover);
-            border-color: var(--fabrica-button-color-hover);
+            background-color: var(--elemnt-button-color-hover);
+            border-color: var(--elemnt-button-color-hover);
         }
 
         &[disabled] {
@@ -26,31 +26,31 @@ styles.replaceSync(/* css */`
             &:hover,
             &:active {
                 text-decoration: none;
-                background-color: var(--fabrica-button-color);
-                color: var(--fabrica-button-contrast-color);
+                background-color: var(--elemnt-button-color);
+                color: var(--elemnt-button-contrast-color);
             }
         }
 
         &[size="small"] {
-            padding: var(--fabrica-button-padding-small);
-            font-size: var(--fabrica-button-font-size-small);
+            padding: var(--elemnt-button-padding-small);
+            font-size: var(--elemnt-button-font-size-small);
         }
 
         &[size="large"] {
-            padding: var(--fabrica-button-padding-large);
-            font-size: var(--fabrica-button-font-size-large);
+            padding: var(--elemnt-button-padding-large);
+            font-size: var(--elemnt-button-font-size-large);
         }
     }
 
     [part="button"][type="outlined"] {
         background-color: transparent;
-        border: 2px solid var(--fabrica-button-color, blue);
-        color: var(--fabrica-button-color, blue);
+        border: 2px solid var(--elemnt-button-color, blue);
+        color: var(--elemnt-button-color, blue);
 
         &[disabled]:hover,
         &[disabled]:active {
-            border-color: var(--fabrica-button-color, blue);
-            color: var(--fabrica-button-color, blue);
+            border-color: var(--elemnt-button-color, blue);
+            color: var(--elemnt-button-color, blue);
             background-color: transparent;
         }
     }
@@ -58,25 +58,25 @@ styles.replaceSync(/* css */`
     [part="button"][type="outlined"]:hover,
     [part="button"][type="outlined"]:active,
     [part="button"][type="outlined"]:focus {
-        border-color: var(--fabrica-button-color-hover);
-        color: var(--fabrica-button-color-hover);
+        border-color: var(--elemnt-button-color-hover);
+        color: var(--elemnt-button-color-hover);
     }
 
 
     [part="button"][type="text"] {
         background-color: transparent;
-        color: var(--fabrica-button-color);
+        color: var(--elemnt-button-color);
         padding: 0;
         border: transparent;
 
         &[disabled]:hover,
         &[disabled]:active {
-            color: var(--fabrica-button-color);
+            color: var(--elemnt-button-color);
             background-color: transparent;
             text-decoration: none;
 
             [part="label"] {
-                color: var(--fabrica-button-color);
+                color: var(--elemnt-button-color);
                 background-color: transparent;
                 text-decoration: none;
             }
@@ -87,7 +87,7 @@ styles.replaceSync(/* css */`
     [part="button"][type="text"]:focus {
         [part="label"] {
             text-decoration: underline;
-            color: var(--fabrica-button-color-hover);
+            color: var(--elemnt-button-color-hover);
         }
     }
 
@@ -102,8 +102,8 @@ template.innerHTML = /* html */`
     </button>
 `
 
-export class FabricaButton extends HTMLElement {
-    static define(tagName = "fabrica-button") {
+export class elemntButton extends HTMLElement {
+    static define(tagName = "elemnt-button") {
         customElements.define(tagName, this)
     }
     shadowRoot = this.attachShadow({ mode: "open" });
@@ -129,7 +129,7 @@ export class FabricaButton extends HTMLElement {
 
             const clickEventName = this.clickEvent
             if (clickEventName) {
-                console.log(`FabricaButton: dispatching custom click event '${clickEventName}'`)
+                console.log(`elemntButton: dispatching custom click event '${clickEventName}'`)
                 this.dispatchEvent(new CustomEvent(clickEventName, {
                     bubbles: true,
                     composed: true,
@@ -192,4 +192,4 @@ export class FabricaButton extends HTMLElement {
     }
 }
 
-FabricaButton.define()
+elemntButton.define()

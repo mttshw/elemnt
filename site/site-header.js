@@ -28,7 +28,7 @@ styles.replaceSync(/* css */`
 const template = document.createElement("template");
 template.innerHTML = /* html */`
     <header>
-        <h2><a href="/">Fabrica</a></h2>
+        <h2><a href="/">elemnt</a></h2>
         <p>Reusable html components</p>
     </header>
 `;

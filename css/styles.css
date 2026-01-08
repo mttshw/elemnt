@@ -6,29 +6,29 @@
 
     --accent-color: rgb(255, 193, 7);
 
-    --fabrica-button-color: var(--primary-color);
-    --fabrica-button-color-hover: var(--primary-color-dark);
-    --fabrica-button-contrast-color: var(--primary-color-contrast);
-    --fabrica-button-padding: 10px 20px;
-    --fabrica-button-border-radius: 4px;
-    --fabrica-button-padding-small: 4px 8px;
-    --fabrica-button-padding-large: 12px 24px;
-    --fabrica-button-font-size: 1rem;
-    --fabrica-button-font-size-small: 0.875rem;
-    --fabrica-button-font-size-large: 1.25rem;
+    --elemnt-button-color: var(--primary-color);
+    --elemnt-button-color-hover: var(--primary-color-dark);
+    --elemnt-button-contrast-color: var(--primary-color-contrast);
+    --elemnt-button-padding: 10px 20px;
+    --elemnt-button-border-radius: 4px;
+    --elemnt-button-padding-small: 4px 8px;
+    --elemnt-button-padding-large: 12px 24px;
+    --elemnt-button-font-size: 1rem;
+    --elemnt-button-font-size-small: 0.875rem;
+    --elemnt-button-font-size-large: 1.25rem;
 
-    --fabrica-card-background-color: white;
-    --fabrica-card-border-color: #ddd;
-    --fabrica-card-border-radius: 8px;
-    --fabrica-card-padding: 20px;   
-    --fabrica-card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --fabrica-card-border-hover: 0 4px 15px rgba(0, 0, 0, 0.2);
-    --fabrica-card-title-font-size: 1.5rem;
-    --fabrica-card-title-color: #333;
-    --fabrica-card-title-font-weight: bold;
-    --fabrica-card-content-font-size: 1rem;
-    --fabrica-card-content-color: #666;
-    --fabrica-card-gap: 15px;
+    --elemnt-card-background-color: white;
+    --elemnt-card-border-color: #ddd;
+    --elemnt-card-border-radius: 8px;
+    --elemnt-card-padding: 20px;   
+    --elemnt-card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --elemnt-card-border-hover: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --elemnt-card-title-font-size: 1.5rem;
+    --elemnt-card-title-color: #333;
+    --elemnt-card-title-font-weight: bold;
+    --elemnt-card-content-font-size: 1rem;
+    --elemnt-card-content-color: #666;
+    --elemnt-card-gap: 15px;
 }
 
 body {

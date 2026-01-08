@@ -16,7 +16,7 @@ styles.replaceSync(/* css */`
 const template = document.createElement("template");
 template.innerHTML = /* html */`
     <footer>
-        <p>&copy; Fabrica 2026</p>
+        <p>&copy; elemnt 2026</p>
     </footer>
 `;
 export class SiteFooter extends HTMLElement {
