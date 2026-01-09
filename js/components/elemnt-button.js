@@ -1,5 +1,5 @@
 const styles = new CSSStyleSheet()
-styles.replaceSync(/* css */`
+styles.replaceSync(/*css*/`
     [part="button"] {
         display: inline-block;
         padding: var(--elemnt-button-padding);
@@ -81,13 +81,150 @@ styles.replaceSync(/* css */`
                 text-decoration: none;
             }
         }   
+
+        &:hover,
+        &:focus {
+            color: var(--elemnt-button-color-hover);
+
+            [part="label"] {
+                text-decoration: underline;
+            }
+        }
     }
 
-    [part="button"][type="text"]:hover,
-    [part="button"][type="text"]:focus {
-        [part="label"] {
-            text-decoration: underline;
-            color: var(--elemnt-button-color-hover);
+    [part="button"][color="accent"] {
+        background-color: var(--elemnt-button-color-accent);
+        color: var(--elemnt-button-contrast-color-accent);
+        border-color: var(--elemnt-button-color-accent);
+
+        &:hover,
+        &:focus {
+            background-color: var(--elemnt-button-color-hover-accent);
+            border-color: var(--elemnt-button-color-hover-accent);
+        }
+
+        &[type="outlined"] {
+            background-color: transparent;
+            color: var(--elemnt-button-color-accent);
+            border-color: var(--elemnt-button-color-accent);
+
+            &:hover,
+            &:focus {
+                border-color: var(--elemnt-button-color-hover-accent);
+                color: var(--elemnt-button-color-hover-accent);
+            }
+        }
+
+        &[type="text"] {
+            background-color: transparent;
+            color: var(--elemnt-button-color-accent);
+
+            &:hover,
+            &:focus {
+                color: var(--elemnt-button-color-hover-accent);
+            }
+        }
+    }
+
+    [part="button"][color="error"] {
+        background-color: var(--error-color);
+        color: var(--error-color-contrast);
+        border-color: var(--error-color);
+
+        &:hover,
+        &:focus {
+            background-color: var(--error-color-dark);
+            border-color: var(--error-color-dark);
+        }
+
+        &[type="outlined"] {
+            background-color: transparent;
+            color: var(--error-color);
+            border-color: var(--error-color);
+
+            &:hover,
+            &:focus {
+                border-color: var(--error-color-dark);
+                color: var(--error-color-dark);
+            }
+        }
+
+        &[type="text"] {
+            background-color: transparent;
+            color: var(--error-color);
+
+            &:hover,
+            &:focus {
+                color: var(--error-color-dark);
+            }
+        }
+    }
+
+    [part="button"][color="success"] {
+        background-color: var(--success-color);
+        color: var(--success-color-contrast);
+        border-color: var(--success-color);
+
+        &:hover,
+        &:focus {
+            background-color: var(--success-color-dark);
+            border-color: var(--success-color-dark);
+        }
+
+        &[type="outlined"] {
+            background-color: transparent;
+            color: var(--success-color);
+            border-color: var(--success-color);
+
+            &:hover,
+            &:focus {
+                border-color: var(--success-color-dark);
+                color: var(--success-color-dark);
+            }
+        }
+
+        &[type="text"] {
+            background-color: transparent;
+            color: var(--success-color);
+
+            &:hover,
+            &:focus {
+                color: var(--success-color-dark);
+            }
+        }
+    }
+
+    [part="button"][color="neutral"] {
+        background-color: var(--neutral-color);
+        color: var(--neutral-color-contrast);
+        border-color: var(--neutral-color);
+
+        &:hover,
+        &:focus {
+            background-color: var(--neutral-color-light);
+            border-color: var(--neutral-color-light);
+        }
+
+        &[type="outlined"] {
+            background-color: transparent;
+            color: var(--neutral-color-contrast);
+            border-color: var(--neutral-color-dark);
+
+            &:hover,
+            &:focus {
+                border-color: var(--neutral-color-dark);
+                color: var(--neutral-color-dark);
+            }
+        }
+
+        &[type="text"] {
+            background-color: transparent;
+            color: var(--neutral-color-contrast);
+
+            &:hover,
+            &:focus {
+                color: var(--neutral-color-dark);
+            }
         }
     }
 
@@ -120,7 +257,7 @@ styles.replaceSync(/* css */`
 `)
 
 const template = document.createElement("template")
-template.innerHTML = /* html */`
+template.innerHTML = /*html*/`
     <button part="button">
         <slot name="start"></slot>
         <span part="label"><slot></slot></span>
@@ -134,7 +271,7 @@ export class elemntButton extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["type", "size"]; // Watch for changes to "type" and "size"
+        return ["type", "size", "color"]; 
     }
     
     shadowRoot = this.attachShadow({ mode: "open" });
@@ -181,6 +318,12 @@ export class elemntButton extends HTMLElement {
                 } else {
                     inner.removeAttribute("size");
                 }
+            } else if (name === "color") {
+                if (newValue) {
+                    inner.setAttribute("color", newValue);
+                } else {
+                    inner.removeAttribute("color");
+                }
             }
         }
     }
@@ -216,6 +359,10 @@ export class elemntButton extends HTMLElement {
             inner.setAttribute('size', this.size)
         }
 
+        if (this.hasAttribute('color')) {
+            inner.setAttribute('color', this.color)
+        }
+
     }
 
     get clickEvent() {
@@ -236,6 +383,10 @@ export class elemntButton extends HTMLElement {
 
     get size() {
         return this.getAttribute("size");
+    }
+
+    get color() {
+        return this.getAttribute("color");
     }
 }
 

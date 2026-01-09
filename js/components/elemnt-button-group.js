@@ -17,6 +17,10 @@ styles.replaceSync(/* css */`
         z-index: 2; /* Bring hovered button to front */
     }
 
+    :host([type="text"]) [part="buttons"] {
+        gap: var(--elemnt-button-group-text-gap, 2);
+    }
+
 `);
 
 const template = document.createElement("template");

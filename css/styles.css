@@ -4,11 +4,34 @@
     --primary-color-light:  rgb(109, 171, 253);
     --primary-color-contrast: white;
 
-    --accent-color: rgb(255, 193, 7);
+    --text-color: rgb(33, 33, 33);
+    
+    --accent-color: rgb(255, 149, 0);
+    --accent-color-dark: rgb(178, 104, 0);
+    --accent-color-light:  rgb(255, 182, 80);
+    --accent-color-contrast: white;
+
+    --error-color: rgb(189, 13, 13);
+    --error-color-dark: rgb(141, 7, 7);
+    --error-color-light:  rgb(219, 63, 63);
+    --error-color-contrast: white;
+
+    --success-color: rgb(0, 185, 46);
+    --success-color-dark: rgb(2, 122, 32);
+    --success-color-light:  rgb(42, 185, 78);
+    --success-color-contrast: white;
+
+    --neutral-color: rgb(214, 214, 214);
+    --neutral-color-dark: rgb(177, 177, 177);
+    --neutral-color-light:  rgb(223, 223, 223);
+    --neutral-color-contrast: var(--text-color);
 
     --elemnt-button-color: var(--primary-color);
     --elemnt-button-color-hover: var(--primary-color-dark);
     --elemnt-button-contrast-color: var(--primary-color-contrast);
+    --elemnt-button-color-accent: var(--accent-color);
+    --elemnt-button-color-hover-accent: var(--accent-color-dark);
+    --elemnt-button-contrast-color-accent: var(--accent-color-contrast);
     --elemnt-button-padding: 10px 20px;
     --elemnt-button-border-radius: 4px;
     --elemnt-button-padding-small: 4px 8px;
@@ -17,6 +40,7 @@
     --elemnt-button-font-size-small: 0.875rem;
     --elemnt-button-font-size-large: 1.25rem;
     --elemnt-button-border-width: 2px;
+    --elemnt-button-group-text-gap: 1rem;
 
     --elemnt-card-background-color: white;
     --elemnt-card-border-color: #ddd;
