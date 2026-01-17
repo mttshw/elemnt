@@ -3,10 +3,10 @@ styles.replaceSync(/* css */`
     nav {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        padding: 16px;
+        gap: var(--elemnt-menu-gap, 8px);
+        padding: var(--elemnt-menu-padding, 16px);
         border: 1px solid var(--elemnt-menu-border-color, #ddd);
-        border-radius: var(--elemnt-border-radius, 4px);
+        border-radius: var(--elemnt-menu-border-radius, 4px);
         background-color: var(--elemnt-menu-background-color, #fafafa);
     }
 
@@ -15,6 +15,7 @@ styles.replaceSync(/* css */`
             flex-direction: row;
         }
     }
+     
 
     :host([alignment="right"]) {
         nav {
@@ -47,8 +48,8 @@ styles.replaceSync(/* css */`
         text-decoration: none;
         color: var(--primary-color, blue);
         font-weight: 500;
-        padding: 8px;
-        border-radius: 4px;
+        padding: var(--elemnt-menu-item-padding, 8px);
+        border-radius: var(--elemnt-menu-item-border-radius, 4px);
         transition: background-color 0.3s;
         display: inline-block;
         border: 0;
@@ -61,8 +62,7 @@ styles.replaceSync(/* css */`
     ::slotted(button:hover),
     ::slotted(a:focus),
     ::slotted(button:focus) {
-        background-color: rgba(0, 0, 255, 0.1);
-        text-decoration: underline;
+        background-color: var(--elemnt-menu-hover-background-color, #eee);
     }
 
     ::slotted(a[disabled]),
@@ -97,6 +97,22 @@ export class ElemntMenu extends HTMLElement {
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets = [styles]
         this.shadowRoot.replaceChildren(template.content.cloneNode(true))
+
+        if(this.padding) {
+            this.shadowRoot.querySelector("nav").style.padding = this.padding;
+        }
+
+        if(this.gap) {
+            this.shadowRoot.querySelector("nav").style.gap = this.gap;
+        }
+
+        if(this.itemPadding) {
+            this.shadowRoot.querySelector("slot").style.setProperty("--elemnt-menu-item-padding", this.itemPadding);
+        }
+
+        if(this.itemBorderRadius) {
+            this.shadowRoot.querySelector("slot").style.setProperty("--elemnt-menu-item-border-radius", this.itemBorderRadius);
+        }
     }
 
     get orientation() {
@@ -109,6 +125,23 @@ export class ElemntMenu extends HTMLElement {
 
     get align() {
         return this.getAttribute("align");
+    }
+    
+    // overrides
+    get padding() {
+        return this.getAttribute("padding");
+    }
+
+    get gap() {
+        return this.getAttribute("gap");
+    }
+
+    get itemPadding() {
+        return this.getAttribute("itemPadding");
+    }
+
+    get itemBorderRadius() {
+        return this.getAttribute("itemBorderRadius");
     }
 }
 

@@ -1,2 +1,2 @@
-# elemental
+# elemnt
 web components library

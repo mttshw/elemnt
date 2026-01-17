@@ -59,6 +59,18 @@
 
     --elemnt-menu-background-color: #fafafa;
     --elemnt-menu-border-color: #ddd;
+    --elemnt-menu-padding: 16px;
+    --elemnt-menu-gap: 8px;
+    --elemnt-menu-hover-background-color: #eee;
+    --elemnt-menu-border-radius: var(--elemnt-border-radius);
+
+    --elemnt-menu-item-padding: 8px;
+    --elemnt-menu-item-border-radius: var(--elemnt-border-radius);
+    --elemnt-menu-item-color: var(--primary-color);
+
+    --elemnt-divider-color: #ddd;
+    --elemnt-divider-height: 1px;
+    --elemnt-divider-margin: 0.1rem 0;
 }
 
 body {

@@ -21,13 +21,31 @@
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
             </elemnt-menu>
-<br>
+
+            <pre><code>
+&lt;elemnt-menu orientation="horizontal"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Services&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>
+
             <elemnt-menu orientation="vertical">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <button>Services</button>
                 <a href="#">Contact</a>
             </elemnt-menu>
+            <pre><code>
+&lt;elemnt-menu orientation="vertical"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;button&gt;Services&lt;/button&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>   
+
 
             <p>Default alignment is to the left but you can change that.</p>
 
@@ -37,27 +55,63 @@
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
             </elemnt-menu>
-<br>
+
+            <pre><code>
+&lt;elemnt-menu orientation="horizontal" alignment="center"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;               
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Services&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>
+
             <elemnt-menu orientation="vertical" alignment="center">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <button>Services</button>
                 <a href="#">Contact</a>
             </elemnt-menu>
-            <br>
+            
+            <pre><code>
+&lt;elemnt-menu orientation="vertical" alignment="center"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;               
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;button&gt;Services&lt;/button&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;     
+&lt;/elemnt-menu&gt;
+            </code></pre>
+
+            <p>This example aslo has a disabled menu item</p>
             <elemnt-menu orientation="horizontal" alignment="right">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <a href="#" disabled>Services</a>
                 <a href="#">Contact</a>
             </elemnt-menu>
-<br>
+
+            <pre><code>
+&lt;elemnt-menu orientation="horizontal" alignment="right"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;               
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#" disabled&gt;Services&lt;/a&gt;   
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>
+            
             <elemnt-menu orientation="vertical" alignment="right">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <button>Services</button>
                 <a href="#">Contact</a>
             </elemnt-menu>
+            <pre><code>
+&lt;elemnt-menu orientation="vertical" alignment="right"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;               
+    &lt;a href="#"&gt;About&lt;/a&gt;           
+    &lt;button&gt;Services&lt;/button&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;     
+&lt;/elemnt-menu&gt;
+            </code></pre>
 
 <p>By default menus stretch to fit their container. But you can restrict them to just the width of their content.</p>
             <elemnt-menu orientation="horizontal" width="content">
@@ -66,8 +120,16 @@
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
             </elemnt-menu>
-<br>
-<br>
+
+            <pre><code>
+&lt;elemnt-menu orientation="horizontal" width="content"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Services&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>
+
             <elemnt-menu orientation="vertical" width="content">
                 <a href="#">Home</a>
                 <a href="#">About</a>
@@ -75,10 +137,57 @@
                 <a href="#">Contact</a>
             </elemnt-menu>
 
-            <p>Icons should be able to be set as prefix or suffix.</p>
-            <p>Should be able to define a separator.</p>
-            <p>Should be able to define a collapsible menu.</p>
+            <pre><code>
+&lt;elemnt-menu orientation="vertical" width="content"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Services&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/elemnt-menu&gt;
+            </code></pre>
 
+            <h2>Using Menu Item</h2>
+
+            <elemnt-menu orientation="vertical" width="content" padding="0px" gap="0px" itemPadding="12px 16px" itemBorderRadius="0px">
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">🏠</span>
+                    Home
+                </elemnt-button>
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">ℹ️</span>
+                    About
+                </elemnt-button>
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">🛠️</span>
+                    Services
+                </elemnt-button>
+                <elemnt-divider height="1" width="full"></elemnt-divider>
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">📞</span>
+                    Contact
+                </elemnt-button>
+            </elemnt-menu>
+
+            <h2>Sub menu items</h2>
+            <elemnt-menu orientation="vertical" width="content" padding="0px" gap="0px" itemPadding="12px 16px" itemBorderRadius="0px">
+                <elemnt-button menu-item>
+                    <span slot="end">></span>
+                    Files
+                    <elemnt-menu slot="submenu" orientation="vertical" width="content" padding="0px" gap="0px">
+                        <elemnt-button menu-item>Find…</elemnt-button>
+                        <elemnt-button menu-item>Find Next</elemnt-button>
+                        <elemnt-button menu-item>Find Previous</elemnt-button>
+                    </elemnt-menu>
+                </elemnt-button>
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">🔧</span>
+                    Settings
+                </elemnt-button>
+                <elemnt-button as="link" href="#" menu-item>
+                    <span slot="start">📊</span>
+                    Analytics
+                </elemnt-button>
+            </elemnt-menu>  
 
         </section>
     </main>
@@ -88,6 +197,8 @@
     <script type="module" defer src="/site/site-header.js"></script>
     <script type="module" defer src="/site/site-nav.js"></script>
     <script type="module" defer src="/js/components/elemnt-menu.js"></script>
+    <script type="module" defer src="/js/components/elemnt-button.js"></script>
+    <script type="module" defer src="/js/components/elemnt-divider.js"></script>
 
 </body>
 </html>

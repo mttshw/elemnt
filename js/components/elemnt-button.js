@@ -1,5 +1,8 @@
 const styles = new CSSStyleSheet()
 styles.replaceSync(/*css*/`
+    :host {
+        position: relative;
+    }
     [part="button"] {
         display: inline-block;
         padding: var(--elemnt-button-padding);
@@ -228,8 +231,21 @@ styles.replaceSync(/*css*/`
         }
     }
 
-    :host-context(elemnt-button-group) [part="button"] {
-        border-radius: 0;
+    :host([menu-item]) [part="button"] {
+        padding: var(--elemnt-menu-item-padding);
+        border-radius: var(--elemnt-menu-item-border-radius);
+        background-color: var(--elemnt-menu-background-color);
+        border: transparent;
+        color: var(--elemnt-menu-item-color, var(--primary-color, blue));
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:hover,
+        &:focus {
+            background-color: var(--elemnt-menu-hover-background-color);
+        }
     }
 
     :host([in-group]) [part="button"] {
@@ -254,6 +270,15 @@ styles.replaceSync(/*css*/`
         width: var(--elemnt-button-font-size);
     }
 
+    slot[name="submenu"] {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+    }
+    slot[name="submenu"][open] {
+        display: block;
+    }
 `)
 
 const template = document.createElement("template")
@@ -263,6 +288,7 @@ template.innerHTML = /*html*/`
         <span part="label"><slot></slot></span>
         <slot name="end"></slot>
     </button>
+    <slot name="submenu"></slot>
 `
 
 export class elemntButton extends HTMLElement {
@@ -304,6 +330,37 @@ export class elemntButton extends HTMLElement {
                 }))
             }
         })
+
+        // submenu slot presence handling: reflect whether the slot has content with a host attribute
+        const submenuSlot = this.shadowRoot.querySelector('slot[name="submenu"]');
+        if (submenuSlot) {
+            inner.addEventListener('click', (ev) => {
+                const isOpen = submenuSlot.hasAttribute('open');
+                if (isOpen) {
+                    submenuSlot.removeAttribute('open');
+                    this.removeAttribute('submenu-open');
+                } else {
+                    submenuSlot.setAttribute('open', '');
+                    this.setAttribute('submenu-open', '');
+                }
+            });
+            // const updateSubmenuState = () => {
+            //     const nodes = submenuSlot.assignedNodes({ flatten: true }) || [];
+            //     const hasContent = nodes.some(n => {
+            //         if (n.nodeType === Node.TEXT_NODE) return n.textContent.trim() !== '';
+            //         return true;
+            //     });
+            //     if (hasContent) {
+            //         this.setAttribute('has-submenu', '');
+            //     } else {
+            //         this.removeAttribute('has-submenu');
+            //     }
+            // };
+            // // initial check
+            // updateSubmenuState();
+            // // react to changes
+            // submenuSlot.addEventListener('slotchange', updateSubmenuState);
+        }
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -361,6 +418,15 @@ export class elemntButton extends HTMLElement {
 
         if (this.hasAttribute('color')) {
             inner.setAttribute('color', this.color)
+        }
+
+        
+
+        if( this.hasAttribute('submenu-open')) {
+            const submenuSlot = this.shadowRoot.querySelector('slot[name="submenu"]');
+            if(submenuSlot) {
+                submenuSlot.setAttribute('open', '');
+            }
         }
 
     }
