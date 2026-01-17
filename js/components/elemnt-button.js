@@ -241,6 +241,8 @@ styles.replaceSync(/*css*/`
         gap: 8px;
         width: 100%;
         box-sizing: border-box;
+        text-align: left;
+        white-space: nowrap;
 
         &:hover,
         &:focus {
@@ -268,6 +270,9 @@ styles.replaceSync(/*css*/`
         display: inline-block;
         height: var(--elemnt-button-font-size);
         width: var(--elemnt-button-font-size);
+    }
+    slot[name="end"]::slotted(*) {
+        margin-left: auto;
     }
 
     slot[name="submenu"] {
@@ -344,23 +349,27 @@ export class elemntButton extends HTMLElement {
                     this.setAttribute('submenu-open', '');
                 }
             });
-            // const updateSubmenuState = () => {
-            //     const nodes = submenuSlot.assignedNodes({ flatten: true }) || [];
-            //     const hasContent = nodes.some(n => {
-            //         if (n.nodeType === Node.TEXT_NODE) return n.textContent.trim() !== '';
-            //         return true;
-            //     });
-            //     if (hasContent) {
-            //         this.setAttribute('has-submenu', '');
-            //     } else {
-            //         this.removeAttribute('has-submenu');
-            //     }
-            // };
-            // // initial check
-            // updateSubmenuState();
-            // // react to changes
-            // submenuSlot.addEventListener('slotchange', updateSubmenuState);
+
+            // close submenu when clicking anywhere outside the component
+            this._boundDocumentClick = (ev) => {
+                // only act if submenu is open
+                if (!this.hasAttribute('submenu-open')) return;
+
+                const path = ev.composedPath ? ev.composedPath() : (ev.path || []);
+                if (path && path.includes(this)) {
+                    // click happened inside this component — ignore
+                    return;
+                }
+
+                // click outside -> close submenu
+                submenuSlot.removeAttribute('open');
+                this.removeAttribute('submenu-open');
+            };
+
+            document.addEventListener('click', this._boundDocumentClick);
         }
+
+
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
