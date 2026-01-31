@@ -283,6 +283,11 @@ styles.replaceSync(/*css*/`
     }
     slot[name="submenu"][open] {
         display: block;
+        z-index: 1000;
+    }
+    slot[name="submenu"][position="below"] {
+        top: 100%;
+        left: 0;
     }
 `)
 
@@ -339,6 +344,10 @@ export class elemntButton extends HTMLElement {
         // submenu slot presence handling: reflect whether the slot has content with a host attribute
         const submenuSlot = this.shadowRoot.querySelector('slot[name="submenu"]');
         if (submenuSlot) {
+            const vertical = this.closest('elemnt-menu').getAttribute('orientation') === 'vertical' ? true : false;
+            if( !vertical ) {
+                submenuSlot.setAttribute('position', 'below');
+            }
             inner.addEventListener('click', (ev) => {
                 const isOpen = submenuSlot.hasAttribute('open');
                 if (isOpen) {

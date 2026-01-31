@@ -194,6 +194,22 @@
                 </elemnt-button>
             </elemnt-menu>  
 
+
+            <elemnt-menu orientation="horizontal" width="content">
+                <a href="#">Home</a>
+                <elemnt-button menu-item>
+                    About
+                    <elemnt-menu slot="submenu" orientation="vertical" width="content" padding="0px" gap="0px">
+                        <elemnt-button menu-item as="link" href="#">Find us</elemnt-button>
+                        <elemnt-button menu-item as="link" href="#">Our story</elemnt-button>
+                        <elemnt-button menu-item as="link" href="#">Meet the team</elemnt-button>
+                    </elemnt-menu>
+                    <slot name="end">▼</slot>
+                </elemnt-button>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </elemnt-menu>
+
         </section>
     </main>
 
