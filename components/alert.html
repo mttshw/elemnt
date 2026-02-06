@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<head>
+    <title>elemnt</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <site-header></site-header>
+    <main>
+        <site-nav></site-nav>
+        <section id="content">
+            <h1>Alert</h1>
+
+            <h4>Default Alert</h4>
+            <elemnt-alert>
+                <span slot="title">Alert Title</span>
+                <p slot="content">This is a default alert message.</p>
+            </elemnt-alert>
+            <pre><code>
+&lt;elemnt-alert&gt;
+    &lt;span slot="title"&gt;Alert Title&lt;/span&gt;
+    &lt;p slot="content"&gt;This is a default alert message.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <h4>Alert with Icon</h4>
+            <elemnt-alert>
+                <span slot="icon">⚠️</span>
+                <span slot="title">Warning Alert</span>
+                <p slot="content">This is a warning alert message with an icon.</p>
+            </elemnt-alert>
+            <pre><code>
+&lt;elemnt-alert&gt;
+    &lt;span slot="icon"&gt;⚠️&lt;/span&gt;
+    &lt;span slot="title"&gt;Warning Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is a warning alert message with an icon.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <h4>Alert Variants</h4>
+
+            <elemnt-alert variant="success">
+                <span slot="title">Success Alert</span>
+                <p slot="content">This is a success alert message.</p>
+            </elemnt-alert>     
+            <elemnt-alert variant="error">
+                <span slot="title">Error Alert</span>
+                <p slot="content">This is an error alert message.</p>
+            </elemnt-alert>
+
+            <elemnt-alert variant="warning">
+                <span slot="title">Warning Alert</span>
+                <p slot="content">This is a warning alert message.</p>
+            </elemnt-alert>
+
+
+            <elemnt-alert variant="info">
+                <span slot="title">Info Alert</span>
+                <p slot="content">This is an info alert message.</p>
+            </elemnt-alert>
+            <pre><code>
+&lt;elemnt-alert variant="success"&gt;
+    &lt;span slot="title"&gt;Success Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is a success alert message.&lt;/p&gt;
+&lt;/elemnt-alert&gt;     
+&lt;elemnt-alert variant="error"&gt;
+    &lt;span slot="title"&gt;Error Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is an error alert message.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+&lt;elemnt-alert variant="warning"&gt;
+    &lt;span slot="title"&gt;Warning Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is a warning alert message.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+&lt;elemnt-alert variant="info"&gt;
+    &lt;span slot="title"&gt;Info Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is an info alert message.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <h4>Make alert dismissible</h4>
+            <elemnt-alert>
+                <span slot="title">Dismissible Alert</span>
+                <p slot="content">This is a dismissible alert message.</p>
+                <button slot="dismiss">✖ dismiss</button>
+            </elemnt-alert>
+            <pre><code>
+&lt;elemnt-alert dismissible&gt;
+    &lt;span slot="title"&gt;Dismissible Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This is a dismissible alert message.&lt;/p&gt;
+    &lt;button slot="dismiss"&gt;✖ dismiss&lt;/button&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <h4>Set time to live for Alert</h4>
+            <elemnt-alert ttl="5000">
+                <span slot="title">Auto Dismiss Alert</span>
+                <p slot="content">This alert will dismiss after 5 seconds.</p>
+            </elemnt-alert>
+            <pre><code>
+&lt;elemnt-alert ttl="5000"&gt;
+    &lt;span slot="title"&gt;Auto Dismiss Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert will dismiss after 5 seconds.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <h4>Alert Positions</h4>
+            <p>You can position top-left, top, top-right, bottom-left, bottom, and bottom-right.</p>
+            <p>You can also pass a `launch-event` which is an event name which the alert will listen for to become visible.</p>
+            <elemnt-alert launch-event="launchTopRightAlert" position="top-right" ttl="5000" variant="success">
+                <span slot="title">Top Right Alert</span>
+                <p slot="content">This alert is positioned at the top right.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchTopRightAlert">Launch top right alert</elemnt-button>
+            <pre><code>
+&lt;elemnt-alert launch-event="launchTopRightAlert" position="top-right" ttl="5000" variant="success"&gt;
+    &lt;span slot="title"&gt;Top Right Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert is positioned at the top right.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <elemnt-alert launch-event="launchTopLeftAlert" position="top-left" ttl="5000" variant="error">
+                <span slot="title">Top Left Alert</span>
+                <p slot="content">This alert is positioned at the top left.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchTopLeftAlert">Launch top left alert</elemnt-button>
+
+            <pre><code>
+&lt;elemnt-alert launch-event="launchTopLeftAlert" position="top-left" ttl="5000" variant="error"&gt;
+    &lt;span slot="title"&gt;Top Left Alert&lt;/span&gt ;
+    &lt;p slot="content"&gt;This alert is positioned at the top left.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <elemnt-alert launch-event="launchTopAlert" position="top" ttl="5000" variant="info">
+                <span slot="title">Top Center Alert</span>
+                <p slot="content">This alert is positioned at the top center.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchTopAlert">Launch top center alert</elemnt-button>
+
+            <pre><code>
+&lt;elemnt-alert launch-event="launchTopAlert" position="top" ttl="5000" variant="info"&gt;
+    &lt;span slot="title"&gt;Top Center Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert is positioned at the top center.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <elemnt-alert launch-event="launchBottomRightAlert" position="bottom-right" ttl="5000" variant="warning">
+                <span slot="title">Bottom Right Alert</span>
+                <p slot="content">This alert is positioned at the bottom right.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchBottomRightAlert">Launch bottom right alert</elemnt-button>
+
+            <pre><code>
+&lt;elemnt-alert launch-event="launchBottomRightAlert" position="bottom-right" ttl="5000" variant="warning"&gt;
+    &lt;span slot="title"&gt;Bottom Right Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert is positioned at the bottom right.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <elemnt-alert launch-event="launchBottomLeftAlert" position="bottom-left" ttl="5000" variant="success">
+                <span slot="title">Bottom Left Alert</span>
+                <p slot="content">This alert is positioned at the bottom left.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchBottomLeftAlert">Launch bottom left alert</elemnt-button>
+
+            <pre><code>
+&lt;elemnt-alert launch-event="launchBottomLeftAlert" position="bottom-left" ttl="5000" variant="success"&gt;
+    &lt;span slot="title"&gt;Bottom Left Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert is positioned at the bottom left.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+            <elemnt-alert launch-event="launchBottomAlert" position="bottom" ttl="5000" variant="error">
+                <span slot="title">Bottom Center Alert</span>
+                <p slot="content">This alert is positioned at the bottom center.</p>
+            </elemnt-alert>
+            <elemnt-button click-event="launchBottomAlert">Launch bottom center alert</elemnt-button>
+
+            <pre><code>
+&lt;elemnt-alert launch-event="launchBottomAlert" position="bottom" ttl="5000" variant="error"&gt;
+    &lt;span slot="title"&gt;Bottom Center Alert&lt;/span&gt;
+    &lt;p slot="content"&gt;This alert is positioned at the bottom center.&lt;/p&gt;
+&lt;/elemnt-alert&gt;
+            </code></pre>
+
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" defer src="/site/site-footer.js"></script>
+    <script type="module" defer src="/site/site-header.js"></script>
+    <script type="module" defer src="/site/site-nav.js"></script>
+    <script type="module" defer src="/js/components/elemnt-alert.js"></script>
+    <script type="module" defer src="/js/components/elemnt-button.js"></script>
+</body>
+</html>
