@@ -33,7 +33,7 @@ template.innerHTML = /* html */`
         <ul>
             ${pages.map(page => { 
                 if(location.origin.includes("github")) { 
-                     page.href = "/elemental" + page.href
+                     page.href = "/elemnt" + page.href
                 }
                 if(page.href === location.pathname) {
                     return `<li><strong>${page.name}</strong></li>`
