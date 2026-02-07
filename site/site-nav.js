@@ -20,18 +20,26 @@ styles.replaceSync(/* css */`
 `);
 
 const pages = [
-    { name: "Alert", href: "components/alert.html" },
-    { name: "Button", href: "components/button.html" },
-    { name: "Card", href: "components/card.html" },
-    { name: "Menu", href: "components/menu.html" },
-    { name: "Typography", href: "components/typography.html" },
+    { name: "Alert", href: "/components/alert.html" },
+    { name: "Button", href: "/components/button.html" },
+    { name: "Card", href: "/components/card.html" },
+    { name: "Menu", href: "/components/menu.html" },
+    { name: "Typography", href: "/components/typography.html" },
 ];
 
 const template = document.createElement("template");
 template.innerHTML = /* html */`
     <nav>
         <ul>
-            ${pages.map(page => `<li><a href="${page.href}">${page.name}</a></li>`).join("")}
+            ${pages.map(page => { 
+                if(location.origin.includes("github")) { 
+                     page.href = "/elemental" + page.href
+                }
+                if(page.href === location.pathname) {
+                    return `<li><strong>${page.name}</strong></li>`
+                }
+                return `<li><a href="${page.href}">${page.name}</a></li>` }).join("")
+            }
         </ul>
     </nav>
 `;
