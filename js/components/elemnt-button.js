@@ -344,9 +344,11 @@ export class elemntButton extends HTMLElement {
         // submenu slot presence handling: reflect whether the slot has content with a host attribute
         const submenuSlot = this.shadowRoot.querySelector('slot[name="submenu"]');
         if (submenuSlot) {
-            const vertical = this.closest('elemnt-menu').getAttribute('orientation') === 'vertical' ? true : false;
-            if( !vertical ) {
-                submenuSlot.setAttribute('position', 'below');
+            if(this.closest('elemnt-menu')){
+                const vertical = this.closest('elemnt-menu').getAttribute('orientation') === 'vertical' ? true : false;
+                if( !vertical ) {
+                    submenuSlot.setAttribute('position', 'below');
+                }
             }
             inner.addEventListener('click', (ev) => {
                 const isOpen = submenuSlot.hasAttribute('open');

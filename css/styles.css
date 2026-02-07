@@ -28,6 +28,7 @@
     --neutral-color-light:  rgb(223, 223, 223);
     --neutral-color-contrast: var(--text-color);
 
+    /* Button component variables */
     --elemnt-button-color: var(--primary-color);
     --elemnt-button-color-hover: var(--primary-color-dark);
     --elemnt-button-contrast-color: var(--primary-color-contrast);
@@ -44,6 +45,7 @@
     --elemnt-button-border-width: 2px;
     --elemnt-button-group-text-gap: 1rem;
 
+    /* Card component variables */
     --elemnt-card-background-color: white;
     --elemnt-card-border-color: #ddd;
     --elemnt-card-border-radius: 8px;
@@ -57,20 +59,48 @@
     --elemnt-card-content-color: #666;
     --elemnt-card-gap: 15px;
 
+    /* Menu component variables */
     --elemnt-menu-background-color: #fafafa;
     --elemnt-menu-border-color: #ddd;
     --elemnt-menu-padding: 16px;
     --elemnt-menu-gap: 8px;
     --elemnt-menu-hover-background-color: #eee;
     --elemnt-menu-border-radius: var(--elemnt-border-radius);
-
+    
+    /* Menu Item component variables */
     --elemnt-menu-item-padding: 8px;
     --elemnt-menu-item-border-radius: var(--elemnt-border-radius);
     --elemnt-menu-item-color: var(--primary-color);
 
+    /* Divider component variables */
     --elemnt-divider-color: #ddd;
     --elemnt-divider-height: 1px;
     --elemnt-divider-margin: 0.1rem 0;
+    
+    /* Alert component variables */
+    --elemnt-alert-border-color: #ddd;
+    --elemnt-alert-border-radius: var(--elemnt-border-radius);
+    --elemnt-alert-padding: 16px;
+    --elemnt-alert-background-color: #f9f9f9;
+    --elemnt-alert-text-color: #333;
+
+    --elemnt-alert-success-border-color: #4CAF50;
+    --elemnt-alert-success-background-color: #DFF2E1;
+    --elemnt-alert-success-text-color: #256029;
+
+    --elemnt-alert-error-border-color: #F44336;
+    --elemnt-alert-error-background-color: #FDECEA;
+    --elemnt-alert-error-text-color: #9C1C0D;
+
+    --elemnt-alert-warning-border-color: #FF9800;
+    --elemnt-alert-warning-background-color: #FFF4E5;
+    --elemnt-alert-warning-text-color: #7F4B00;
+
+    --elemnt-alert-info-border-color: #2196F3;
+    --elemnt-alert-info-background-color: #E8F4FD;
+    --elemnt-alert-info-text-color: #0D47A1;
+
+
 }
 
 body {

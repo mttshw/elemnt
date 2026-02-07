@@ -153,23 +153,39 @@ export class ElemntAlert extends HTMLElement {
         if(this.querySelector('[slot="dismiss"]')) {
             const dismissBtn = this.querySelector('[slot="dismiss"]');
             dismissBtn.addEventListener('click', () => {
-                this.remove();
+                if( this.visible ) {
+                    this.visible = false;
+                } else {
+                    // this.remove();
+                }
             });
         }
 
         if( this.ttl && !isNaN(parseInt(this.ttl)) ) {
-            setTimeout(() => {
-                this.remove();
-            }, parseInt(this.ttl));
+            this.actionTTL();
         }
 
         if( this.launchEvent ) {
             const eventName = this.launchEvent;
             document.addEventListener(eventName, () => {
-                this.setAttribute('visible', '');
+                this.visible = true;
+                this.actionTTL();
+
             });
         }
         
+    }
+
+    actionTTL() {
+        if( this.ttl && !isNaN(parseInt(this.ttl)) ) {
+            console.log("Setting TTL for alert:", this.ttl);
+            setTimeout(() => {
+                console.log(this.visible)
+                if( this.visible ) {
+                    this.visible = false;
+                } 
+            }, parseInt(this.ttl));
+        }
     }
 
     get variant() {
@@ -184,6 +200,17 @@ export class ElemntAlert extends HTMLElement {
         return this.getAttribute("launch-event");
     }
 
+    get visible() {
+        return this.hasAttribute("visible");
+    }
+
+    set visible(value) {
+        if (value) {
+            this.setAttribute("visible", "");
+        } else {
+            this.removeAttribute("visible");
+        }
+    }
 }
 
 ElemntAlert.define()
