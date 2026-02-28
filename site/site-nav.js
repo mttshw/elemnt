@@ -24,6 +24,7 @@ const pages = [
     { name: "Button", href: "/components/button.html" },
     { name: "Card", href: "/components/card.html" },
     { name: "Menu", href: "/components/menu.html" },
+    { name: "Tabs", href: "/components/tabs.html" },
     { name: "Typography", href: "/components/typography.html" },
 ];
 

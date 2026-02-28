@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <title>elemnt</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+<body>
+    <site-header></site-header>
+    <main>
+        <site-nav></site-nav>
+        <section id="content">
+
+            <h1>Tabs</h1>
+
+            <p>Tabs are a great way to organize content into separate views. You can create a tabbed interface using the <code>elemnt-tabs</code> component.</p>
+
+            <elemnt-tabs>
+                <elemnt-tab name="Tab 1">
+                    Tab 1 Title
+                </elemnt-tab>
+                <elemnt-tab name="Tab 2">
+                    Tab 2 Title
+                </elemnt-tab>
+                <elemnt-tab name="Tab 3">
+                    Tab 3 Title
+                </elemnt-tab>
+
+                <elemnt-tab-content name="Tab 1">
+                    <p>This is the content for Tab 1.</p>
+                </elemnt-tab-content>
+                <elemnt-tab-content name="Tab 2">
+                    <p>This is the content for Tab 2.</p>
+                </elemnt-tab-content>
+                <elemnt-tab-content name="Tab 3">
+                    <p>This is the content for Tab 3.</p>
+                </elemnt-tab-content>
+            </elemnt-tabs>
+
+            <pre><code>
+&lt;elemnt-tabs&gt;
+    &lt;elemnt-tab name="Tab 1"&gt;
+        Tab 1 Title
+    &lt;/elemnt-tab&gt;
+    &lt;elemnt-tab name="Tab 2"&gt;     
+        Tab 2 Title
+    &lt;/elemnt-tab&gt;
+    &lt;elemnt-tab name="Tab 3"&gt;
+        Tab 3 Title
+    &lt;/elemnt-tab&gt;
+
+    &lt;elemnt-tab-content name="Tab 1"&gt;
+        &lt;p&gt;This is the content for Tab 1.&lt;/p&gt;
+    &lt;/elemnt-tab-content&gt;
+    &lt;elemnt-tab-content name="Tab 2"&gt;
+        &lt;p&gt;This is the content for Tab 2.&lt;/p&gt
+    &lt;/elemnt-tab-content&gt;
+    &lt;elemnt-tab-content name="Tab 3"&gt;
+        &lt;p&gt;This is the content for Tab 3.&lt;/p&gt;
+    &lt;/elemnt-tab-content&gt;
+&lt;/elemnt-tabs&gt;
+            </code></pre>
+
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" defer src="../site/site-footer.js"></script>
+    <script type="module" defer src="../site/site-header.js"></script>
+    <script type="module" defer src="../site/site-nav.js"></script>
+    <script type="module" defer src="../js/components/elemnt-tabs.js"></script>
+    <script type="module" defer src="../js/components/elemnt-tab.js"></script>
+    <script type="module" defer src="../js/components/elemnt-tab-content.js"></script>
+</body>
+</html>

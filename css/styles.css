@@ -100,6 +100,12 @@
     --elemnt-alert-info-background-color: #E8F4FD;
     --elemnt-alert-info-text-color: #0D47A1;
 
+    /* Tab component variables */
+    --elemnt-tab-padding: 0.5em 1em;
+    --elemnt-tab-color: black;
+    --elemnt-tab-font-size: 1em;
+    --elemnt-tab-active-border-color: var(--primary-color);
+    --elemnt-tab-active-color: var(--primary-color);
 
 }
 
